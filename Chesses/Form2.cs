@@ -42,14 +42,14 @@ namespace Chesses
             {"9","A" },{"10","B" },{"11","C" },{"12","D" },{"13","E" },{"14","F" },{"15","G" },{"16","H" }
         };
         public bool isMoving = false;
-        static NeuralNetwork net,net_num;
+        //static NeuralNetwork net,net_num;
         static int[] layers = new int[3] { 960, 60, 8 };
         static int[] layers1 = new int[3] { 924, 111, 8 };
         static string[] activation = new string[2] { "logistic", "logistic" };
         public Form2()
         { 
-            net = new NeuralNetwork(layers, activation);
-            net_num = new NeuralNetwork(layers1, activation);
+            //net = new NeuralNetwork(layers, activation);
+            //net_num = new NeuralNetwork(layers1, activation);
             //net.Load("../../../MLP.txt");
             //net_num.Load("../../../MLP.txt");
             InitializeComponent();
@@ -820,9 +820,9 @@ namespace Chesses
                     {
                         t[it - 1] = flo[it];
                     }
-                    if (flo[0]>8)
-                    net.BackPropagate(new float[] { NeuralNetwork.Norm2(flo[0]) }, t);
-                    else net_num.BackPropagate(new float[] { NeuralNetwork.Norm(flo[0]) }, t);
+                    //if (flo[0]>8)
+                    //net.BackPropagate(new float[] { Neural_Network.Norm2(flo[0]) }, t);
+                    //else net_num.BackPropagate(new float[] { Neural_Network.Norm(flo[0]) }, t);
                 }
             }
             StreamWriter sw = new StreamWriter("all/max.txt");
@@ -832,8 +832,8 @@ namespace Chesses
                 sw.WriteLine(layers[i].ToString());
             }
             sw.Close();
-            net.Save("all/MLP2.txt");
-            net_num.Save("all/MLP3.txt");
+            //net.Save("all/MLP2.txt");
+            //net_num.Save("all/MLP3.txt");
             btn.Enabled = true;
         }
 
@@ -841,8 +841,8 @@ namespace Chesses
         {
             Button btn = sender as Button;
             btn.Enabled = false;
-            net.Load("all/MLP2.txt");
-            net_num.Load("all/MLP3.txt");
+            //net.Load("all/MLP2.txt");
+            //net_num.Load("all/MLP3.txt");
             btn.Enabled = true;
         }
 
