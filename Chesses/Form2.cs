@@ -160,7 +160,14 @@ namespace Chesses
             load.Text = "load";
             load.Click += button1_Click_4;
             load.Visible = false;
-            this.Controls.Add(load);
+            this.Controls.Add(load); 
+            Label label = new Label();
+            label.Text = "Something";
+            label.Font = new Font("Microsoft Sans Serif", 22, FontStyle.Bold);
+            label.Location = new Point(500, 450);
+            label.Size = new Size(33, 36);
+            label.Visible = false;
+            this.Controls.Add(label);
         }
 
         public void CreateLable()
